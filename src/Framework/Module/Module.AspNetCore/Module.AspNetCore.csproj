@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>LiModular.Lib.Module.AspNetCore</AssemblyName>
+    <RootNamespace>LiModular.Lib.Module.AspNetCore</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Module.Abstractions\Module.Abstractions.csproj" />
+  </ItemGroup>
+
+</Project>

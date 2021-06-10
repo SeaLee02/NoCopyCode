@@ -2,6 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>LiModular.WebHost</AssemblyName>
+    <RootNamespace>LiModular.WebHost</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Framework\Module\Module.AspNetCore\Module.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\Modules\Admin\Web\Web.csproj" />
+  </ItemGroup>
 
 </Project>

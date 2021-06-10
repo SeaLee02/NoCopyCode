@@ -1,0 +1,8 @@
+﻿{
+	"Id": 0,
+	"Name": "权限管理",
+	"Code": "Admin",
+	"Icon": "permission",
+	"Version": "1.0.0",
+	"Description": "权限管理模块用于身份认证以及授权等功能"
+}
