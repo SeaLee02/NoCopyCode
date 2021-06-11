@@ -1,6 +1,7 @@
 ﻿namespace LiModular.Lib.Module.AspNetCore
 {
     using LiModular.Lib.Module.Abstractions;
+    using Microsoft.AspNetCore.Builder;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
 
@@ -20,5 +21,11 @@
         /// <param name="cfg">配置</param>
         void ConfigureServices(IServiceCollection services, IModuleCollection modules, IHostEnvironment env);
 
+        /// <summary>
+        /// 配置中间件
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="env"></param>
+        void Configure(IApplicationBuilder app, IHostEnvironment env);
     }
 }

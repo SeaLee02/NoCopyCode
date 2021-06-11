@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Framework\Host\Host.Web\Host.Web.csproj" />
     <ProjectReference Include="..\..\Framework\Module\Module.AspNetCore\Module.AspNetCore.csproj" />
     <ProjectReference Include="..\..\Modules\Admin\Web\Web.csproj" />
   </ItemGroup>
