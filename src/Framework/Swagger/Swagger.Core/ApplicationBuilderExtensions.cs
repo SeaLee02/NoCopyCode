@@ -5,6 +5,7 @@
     using LiModular.Lib.Swagger.Core.Extensions;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.Extensions.DependencyInjection;
+    using Swashbuckle.AspNetCore.SwaggerUI;
 
     public static class ApplicationBuilderExtensions
     {
@@ -33,6 +34,14 @@
                         c.SwaggerEndpoint(pathBase.NotNull() ? $"{pathBase}{url}" : url, g.Value);
                     }
                 }
+
+                //启用过滤
+                c.EnableFilter();
+
+                //是否展开
+                c.DocExpansion(DocExpansion.None);
+                //model删除
+                c.DefaultModelsExpandDepth(-1);
             });
             return app;
         }
