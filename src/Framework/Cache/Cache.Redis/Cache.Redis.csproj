@@ -2,8 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyName>LiModular.LibCache.Redis</AssemblyName>
+    <AssemblyName>LiModular.Lib.Cache.Redis</AssemblyName>
     <RootNamespace>LiModular.Lib.Cache.Redis</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="StackExchange.Redis" Version="2.2.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cache.Abstractions\Cache.Abstractions.csproj" />
+  </ItemGroup>
 
 </Project>
