@@ -1,5 +1,6 @@
 ﻿namespace LiModular.Lib.Host.Web
 {
+    using AspectCore.Extensions.DependencyInjection;
     using LiModular.Lib.Mapper.AutoMapper;
     using LiModular.Lib.Module.AspNetCore;
     using LiModular.Lib.Swagger.Core;
@@ -41,6 +42,7 @@
             {
 
             });
+            services.ConfigureDynamicProxy();
             return services;
         }
 
