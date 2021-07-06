@@ -43,7 +43,6 @@
 
             return Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder(args)
                     .UseDefaultServiceProvider(options => { options.ValidateOnBuild = false; })
-
                     .ConfigureWebHostDefaults(webBuilder =>
                     {
                         webBuilder.UseLogging()

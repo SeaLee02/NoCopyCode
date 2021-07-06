@@ -49,11 +49,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Swagger.Core", "src\Framewo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "07_Cache", "07_Cache", "{00AE7307-787C-4CAB-92D6-AA199A2C6033}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cache.Abstractions", "src\Framework\Cache\Cache.Abstractions\Cache.Abstractions.csproj", "{89D41084-E441-4239-8D79-274651252273}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cache.Abstractions", "src\Framework\Cache\Cache.Abstractions\Cache.Abstractions.csproj", "{89D41084-E441-4239-8D79-274651252273}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cache.Redis", "src\Framework\Cache\Cache.Redis\Cache.Redis.csproj", "{2A5E142C-C854-4378-9E03-EF35F4D70F6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cache.Redis", "src\Framework\Cache\Cache.Redis\Cache.Redis.csproj", "{2A5E142C-C854-4378-9E03-EF35F4D70F6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cache.AspNetCore", "src\Framework\Cache\Cache.AspNetCore\Cache.AspNetCore.csproj", "{D757003F-7F7C-4C14-AD13-D276F2EE2D2E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cache.AspNetCore", "src\Framework\Cache\Cache.AspNetCore\Cache.AspNetCore.csproj", "{D757003F-7F7C-4C14-AD13-D276F2EE2D2E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "08_Auth", "08_Auth", "{260D704F-9060-45FF-BD52-845953D00735}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -239,6 +241,7 @@ Global
 		{89D41084-E441-4239-8D79-274651252273} = {00AE7307-787C-4CAB-92D6-AA199A2C6033}
 		{2A5E142C-C854-4378-9E03-EF35F4D70F6D} = {00AE7307-787C-4CAB-92D6-AA199A2C6033}
 		{D757003F-7F7C-4C14-AD13-D276F2EE2D2E} = {00AE7307-787C-4CAB-92D6-AA199A2C6033}
+		{260D704F-9060-45FF-BD52-845953D00735} = {5E59C222-AC44-470E-9216-EAC764231997}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1FD4D8B4-B10E-4D1A-9BB2-2690423DDA46}
