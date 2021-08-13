@@ -13,7 +13,7 @@ namespace LiModular.WebHost
         /// <param name="args"></param>
         public static void Main(string[] args)
         {
-            new HostBuilder().Run<Startup>(args);
+            new HostBootstrap(args).Run<Startup>();
         }
     }
 }

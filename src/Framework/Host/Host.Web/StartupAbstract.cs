@@ -1,6 +1,12 @@
 ﻿namespace LiModular.Lib.Host.Web
 {
+    using LiModular.Lib.AOP.AspNetCore;
+    using LiModular.Lib.Host.Web.Middleware;
+    using LiModular.Lib.Host.Web.Swagger;
+    using LiModular.Lib.Mapper.AutoMapper;
     using LiModular.Lib.Module.AspNetCore;
+    using LiModular.Lib.Utils.Core.Attributes;
+    using LiModular.Lib.Utils.Core.Configuration;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.Configuration;
@@ -11,7 +17,6 @@
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
-    using HostOptions = LiModular.Lib.Host.Web.Options.HostOptions;
 
 
     /// <summary>
@@ -31,20 +36,58 @@
 
         public virtual void ConfigureServices(IServiceCollection services)
         {
-            services.AddWebHost(_env, _cfg);
+            //注册所以的自定义服务服务,属性注入
+            services.AddServicesFromAttribute();
+
+            //初始化模块数据
+            var module = services.AddModules();
+
+            //管理全局配置文件
+            services.AddSingleton(new Appsettings(_cfg));
+
+            //上下文,获取当前等人信息使用,需要显示声明
+            services.AddHttpContextAccessor();        
+
+            //添加Swagger配置
+            services.AddSwagger(module);
+
+            //配置接口映射
+            //读取配置
+            services.AddMappers(module);
+
+            //使用AOP
+            services.AddAop();
+
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
         }
 
         public virtual void Configure(IApplicationBuilder app, IHostApplicationLifetime appLifetime)
         {
-            app.UseWebHost(_env);
+            //异常处理
+            app.UseExceptionHandle();
+            app.UseMiddleware<ResponseTimeMiddleware>();
+            app.UseCustomSwagger();
+         
+            app.UseCors("default");//将跨域配置放入管道
+            //路由
+            app.UseRouting();
+            app.UseAuthentication();
+            app.UseAuthorization();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                 name: "default",
+                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
-            //app.UseShutdownHandler();
+                endpoints.MapAreaControllerRoute(
+                    name: "areas", "areas",
+                    pattern: "api/{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
-            //appLifetime.ApplicationStarted.Register(() =>
-            //{
-            //    //显示启动Logo
-            //    app.ApplicationServices.GetService<IStartLogoProvider>().Show(_hostOptions);
-            //});
+            });
+            app.UseModules(_env);
+
+
         }
     }
 }

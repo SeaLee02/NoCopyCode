@@ -1,15 +1,32 @@
 ﻿namespace LiModular.Lib.Module.AspNetCore
 {
     using LiModular.Lib.Module.Abstractions;
+    using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
+    using System.Collections.Generic;
 
     public static class ServiceCollectionExtensions
-    { /// <summary>
-      /// 添加模块
-      /// </summary>
-      /// <param name="services"></param>
-      /// <returns></returns>
+    {
+        public static IModuleCollection AddModulesCore(this IServiceCollection services, IHostEnvironment environment, IConfiguration configuration)
+        {
+            //var moduleOptionsList = configuration.Get<List<ModuleOptions>>("Mkh:Modules");
+
+            //var modules = new ModuleCollection(environment);
+            //modules.Load(moduleOptionsList);
+
+            //services.AddSingleton<IModuleCollection>(modules);
+            var modules = new ModuleCollection();
+            return modules;
+        }
+
+
+
+        /// <summary>
+        /// 添加模块
+        /// </summary>
+        /// <param name="services"></param>
+        /// <returns></returns>
         public static IModuleCollection AddModules(this IServiceCollection services)
         {
             var modules = new ModuleCollection();

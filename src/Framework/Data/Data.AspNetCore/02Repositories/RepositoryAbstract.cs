@@ -11,20 +11,34 @@ using System.Threading.Tasks;
 
 namespace Data.AspNetCore.Repositories
 {
-    public abstract class RepositoryAbstract<TEntity, TDbContext> : IRepository<TEntity> 
-        where TEntity :class 
+    public abstract class RepositoryAbstract<TEntity, TDbContext> : IRepository<TEntity>
+        where TEntity : class
         where TDbContext : DbContext
     {
         protected virtual TDbContext DbContext { get; set; }
+
+        public virtual DbSet<TEntity> DbEntity => DbContext.Set<TEntity>();
 
         public RepositoryAbstract(TDbContext context)
         {
             this.DbContext = context;
         }
 
+        public virtual IQueryable Queryable() 
+        {
+            return DbEntity.AsQueryable();
+        
+        }
+
+
+        public virtual List<TEntity> GetAll()
+        {
+            return DbEntity.ToList();
+        }
+
         public virtual TEntity Add(TEntity entity)
         {
-            return DbContext.Add(entity).Entity;
+            return DbEntity.Add(entity).Entity;
         }
 
         public virtual Task<TEntity> AddAsync(TEntity entity, CancellationToken cancellationToken = default)
@@ -34,7 +48,7 @@ namespace Data.AspNetCore.Repositories
 
         public virtual TEntity Update(TEntity entity)
         {
-            return DbContext.Update(entity).Entity;
+            return DbEntity.Update(entity).Entity;
         }
 
         public virtual Task<TEntity> UpdateAsync(TEntity entity, CancellationToken cancellationToken = default)
@@ -44,7 +58,7 @@ namespace Data.AspNetCore.Repositories
 
         public virtual bool Remove(TEntity entity)
         {
-            DbContext.Remove(entity);
+            DbEntity.Remove(entity);
             return true;
         }
 
@@ -93,6 +107,12 @@ namespace Data.AspNetCore.Repositories
         public virtual async Task<TEntity> GetAsync(TKey id, CancellationToken cancellationToken = default)
         {
             return await DbContext.FindAsync<TEntity>(id, cancellationToken);
+        }
+
+
+        public virtual async Task<List<TEntity>> GetAllAsync()
+        {
+            return await DbContext.Set<TEntity>().ToListAsync();
         }
     }
 

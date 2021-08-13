@@ -1,4 +1,6 @@
-﻿namespace LiModular.Lib.Module.Abstractions
+﻿using System.Reflection;
+
+namespace LiModular.Lib.Module.Abstractions
 {
     /// <summary>
     /// 模块化程序集描述
@@ -10,7 +12,7 @@
         ///// <summary>
         ///// 应用层服务
         ///// </summary>
-        //Assembly Application { get; set; }
+        Assembly Application { get; set; }
 
         ///// <summary>
         ///// 领域

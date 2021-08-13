@@ -13,5 +13,10 @@
         /// </summary>
         public Assembly Web { get; set; }
 
+        /// <summary>
+        /// 应用层
+        /// </summary>
+        public Assembly Application { get; set; }
+
     }
 }

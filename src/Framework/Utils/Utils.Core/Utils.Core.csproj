@@ -11,7 +11,9 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="3.1.16" />
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="3.1.16" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.16" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.16" />
     <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="3.1.6" />
+    <PackageReference Include="NPinyin.Core" Version="3.0.0" />
     <PackageReference Include="System.Runtime.Loader" Version="4.3.0" />
   </ItemGroup>
 

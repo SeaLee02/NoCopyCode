@@ -1,4 +1,4 @@
-﻿using LiModular.Lib.Module.AspNetCore.AOP;
+﻿
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -25,7 +25,6 @@ namespace LiModular.Module.Admin.Web.Controllers
         /// <returns></returns>
         [HttpGet]
         [AllowAnonymous]
-        [TransactionInterceptor]
         [Description("查询")]
         public async Task Query([FromQuery] QueryModel model)
         {

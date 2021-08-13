@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
+  <PropertyGroup>   
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>LiModular.Lib.Cache.AspNetCore</AssemblyName>
     <RootNamespace>LiModular.Lib.Cache.AspNetCore</RootNamespace>

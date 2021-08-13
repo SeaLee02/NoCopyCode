@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LiModular.Lib.Module.AspNetCore.Attributes
+namespace LiModular.Lib.Auth.Web.Attributes
 {
     /// <summary>
     /// 禁用审计功能
